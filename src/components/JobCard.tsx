@@ -38,8 +38,7 @@ const JobCard = ({ job, uuid, candidateId }: JobCardProps) => {
     const payload = {
       uuid,
       jobId: job.id,
-      applicationId: job.id,
-      candidateId: uuid,
+      candidateId,
       repoUrl: repoUrl.trim(),
     };
 
