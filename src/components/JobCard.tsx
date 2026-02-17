@@ -9,11 +9,12 @@ interface JobCardProps {
   job: Job;
   uuid: string;
   candidateId: string;
+  applicationId: string;
 }
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
-const JobCard = ({ job, uuid, candidateId }: JobCardProps) => {
+const JobCard = ({ job, uuid, candidateId, applicationId }: JobCardProps) => {
   // Seteamos tu repositorio real por defecto para evitar errores manuales
   const [repoUrl, setRepoUrl] = useState("https://github.com/Elrond82/job-apply-hub");
   const [status, setStatus] = useState<SubmitStatus>("idle");
@@ -39,7 +40,7 @@ const JobCard = ({ job, uuid, candidateId }: JobCardProps) => {
       uuid,
       jobId: job.id,
       candidateId,
-      applicationId: candidateId,
+      applicationId,
       repoUrl: repoUrl.trim(),
     };
 

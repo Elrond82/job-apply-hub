@@ -94,6 +94,7 @@ const Index = () => {
             jobs={jobs}
             uuid={candidate.uuid}
             candidateId={candidate.candidateId}
+            applicationId={candidate.applicationId}
           />
         )}
       </main>
