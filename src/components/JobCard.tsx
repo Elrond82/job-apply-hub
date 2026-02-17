@@ -37,7 +37,7 @@ const JobCard = ({ job, uuid, candidateId }: JobCardProps) => {
 
     const payload = {
       uuid,
-      jobId: job.id,
+      applicationId: job.id,
       candidateId,
       repoUrl: repoUrl.trim(),
     };
@@ -45,7 +45,7 @@ const JobCard = ({ job, uuid, candidateId }: JobCardProps) => {
     console.log("Enviando postulación (Step 5):", payload);
 
     try {
-      const result = await applyToJob(payload);
+      const result = await applyToJob(payload as any);
 
       if (result.ok) {
         setStatus("success");
