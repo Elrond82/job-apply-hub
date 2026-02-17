@@ -26,16 +26,23 @@ const JobCard = ({ job, uuid, candidateId }: JobCardProps) => {
       return;
     }
 
+    if (!uuid || !candidateId) {
+      setStatus("error");
+      setErrorMessage("Error: Faltan datos del candidato (uuid o candidateId). Por favor recarga la página.");
+      return;
+    }
+
     setStatus("loading");
     setErrorMessage("");
 
     try {
       const result = await applyToJob({
         uuid,
+        applicationId: uuid,
         jobId: job.id,
         candidateId,
         repoUrl: repoUrl.trim(),
-      });
+      } as any);
 
       if (result.ok) {
         setStatus("success");
