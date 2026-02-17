@@ -35,14 +35,17 @@ const JobCard = ({ job, uuid, candidateId }: JobCardProps) => {
     setStatus("loading");
     setErrorMessage("");
 
+    const payload = {
+      uuid,
+      jobId: job.id,
+      candidateId,
+      repoUrl: repoUrl.trim(),
+    };
+
+    console.log("Enviando postulación (Step 5):", payload);
+
     try {
-      const result = await applyToJob({
-        uuid,
-        applicationId: uuid,
-        jobId: job.id,
-        candidateId,
-        repoUrl: repoUrl.trim(),
-      } as any);
+      const result = await applyToJob(payload);
 
       if (result.ok) {
         setStatus("success");
