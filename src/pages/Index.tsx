@@ -10,7 +10,7 @@ import LoadingSkeleton from "@/components/LoadingSkeleton";
 import { AlertCircle, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const CANDIDATE_EMAIL = "[TU_EMAIL_AQUÍ]";
+const CANDIDATE_EMAIL = "xyairx1@gmail.com";
 
 const Index = () => {
   const [candidate, setCandidate] = useState<Candidate | null>(null);
