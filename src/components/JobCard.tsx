@@ -39,6 +39,7 @@ const JobCard = ({ job, uuid, candidateId }: JobCardProps) => {
       uuid,
       jobId: job.id,
       candidateId,
+      applicationId: candidateId,
       repoUrl: repoUrl.trim(),
     };
 
