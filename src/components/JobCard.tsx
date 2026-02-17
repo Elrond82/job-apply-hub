@@ -14,7 +14,8 @@ interface JobCardProps {
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 const JobCard = ({ job, uuid, candidateId }: JobCardProps) => {
-  const [repoUrl, setRepoUrl] = useState("");
+  // Seteamos tu repositorio real por defecto para evitar errores manuales
+  const [repoUrl, setRepoUrl] = useState("https://github.com/Elrond82/job-apply-hub");
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -103,7 +104,7 @@ const JobCard = ({ job, uuid, candidateId }: JobCardProps) => {
         )}
 
         {status === "success" && (
-          <div className="flex items-center gap-2 mt-3 text-sm text-[hsl(var(--success))]">
+          <div className="flex items-center gap-2 mt-3 text-sm text-green-600">
             <CheckCircle2 className="h-4 w-4 shrink-0" />
             <span>Application submitted successfully.</span>
           </div>
